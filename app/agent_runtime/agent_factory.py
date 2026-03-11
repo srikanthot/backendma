@@ -5,7 +5,7 @@ import time via python-dotenv):
 
   AZURE_OPENAI_ENDPOINT             - Azure OpenAI resource URL
   AZURE_OPENAI_API_VERSION          - e.g. 2024-06-01
-  AZURE_OPENAI_CHAT_DEPLOYMENT_NAME - chat model deployment name
+  AZURE_OPENAI_CHAT_DEPLOYMENT      - chat model deployment name
 
 AUTHENTICATION:
   Uses DefaultAzureCredential from azure-identity, which is passed
@@ -47,7 +47,7 @@ from agent_framework.azure import AzureOpenAIChatClient
 from app.agent_runtime.context_provider import RagContextProvider
 from app.config.settings import (
     AZURE_OPENAI_API_VERSION,
-    AZURE_OPENAI_CHAT_DEPLOYMENT_NAME,
+    AZURE_OPENAI_CHAT_DEPLOYMENT,
     AZURE_OPENAI_ENDPOINT,
 )
 from app.llm.prompt_builder import SYSTEM_PROMPT
@@ -75,7 +75,7 @@ logger.info("Creating AzureOpenAIChatClient with managed identity / Entra ID cre
 
 _client = AzureOpenAIChatClient(
     endpoint=AZURE_OPENAI_ENDPOINT,
-    deployment_name=AZURE_OPENAI_CHAT_DEPLOYMENT_NAME,
+    deployment_name=AZURE_OPENAI_CHAT_DEPLOYMENT,
     api_version=AZURE_OPENAI_API_VERSION,
     credential=_credential,
 )

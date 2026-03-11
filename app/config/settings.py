@@ -16,11 +16,6 @@ load_dotenv(override=True)
 AZURE_OPENAI_ENDPOINT: str = os.getenv("AZURE_OPENAI_ENDPOINT", "")
 AZURE_OPENAI_API_VERSION: str = os.getenv("AZURE_OPENAI_API_VERSION", "2024-06-01")
 AZURE_OPENAI_CHAT_DEPLOYMENT: str = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", "")
-# Agent Framework SDK reads AZURE_OPENAI_CHAT_DEPLOYMENT_NAME; fallback to legacy var
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME: str = os.getenv(
-    "AZURE_OPENAI_CHAT_DEPLOYMENT_NAME",
-    os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", ""),
-)
 AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT: str = os.getenv(
     "AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT", ""
 )
@@ -54,8 +49,6 @@ TOP_K: int = int(os.getenv("TOP_K", "5"))
 VECTOR_K: int = int(os.getenv("VECTOR_K", "50"))
 # MAX_CONTEXT_CHUNKS: hard cap on chunks assembled into the prompt context
 MAX_CONTEXT_CHUNKS: int = int(os.getenv("MAX_CONTEXT_CHUNKS", "5"))
-# How many candidates to fetch before post-retrieval filtering trims to TOP_K
-RETRIEVAL_CANDIDATES: int = int(os.getenv("RETRIEVAL_CANDIDATES", "20"))
 
 # ---------------------------------------------------------------------------
 # Retrieval quality thresholds
@@ -71,21 +64,6 @@ USE_SEMANTIC_RERANKER: bool = (
 SEMANTIC_CONFIG_NAME: str = os.getenv(
     "SEMANTIC_CONFIG_NAME", "manual-semantic-config"
 )
-QUERY_LANGUAGE: str = os.getenv("QUERY_LANGUAGE", "en-us")
-
-# ---------------------------------------------------------------------------
-# Post-retrieval filtering
-# ---------------------------------------------------------------------------
-# Maximum chunks from any single source document
-MAX_CHUNKS_PER_SOURCE: int = int(os.getenv("MAX_CHUNKS_PER_SOURCE", "3"))
-# Score gap ratio: discard chunks scoring below this fraction of the top score
-SCORE_GAP_RATIO: float = float(os.getenv("SCORE_GAP_RATIO", "0.40"))
-# Overlap similarity threshold for deduplication (0.0-1.0, higher = stricter)
-DEDUP_SIMILARITY_THRESHOLD: float = float(
-    os.getenv("DEDUP_SIMILARITY_THRESHOLD", "0.85")
-)
-# Minimum content length (chars) for a chunk to be useful — filters out stubs
-MIN_CHUNK_LENGTH: int = int(os.getenv("MIN_CHUNK_LENGTH", "50"))
 
 # ---------------------------------------------------------------------------
 # CORS — comma-separated origins

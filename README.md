@@ -186,7 +186,6 @@ All configuration is driven by environment variables. See `.env.example` for the
 - `AZURE_OPENAI_ENDPOINT` — Azure OpenAI resource URL
 - `AZURE_OPENAI_API_VERSION` — API version (e.g., `2024-06-01`)
 - `AZURE_OPENAI_CHAT_DEPLOYMENT` — Chat model deployment name
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME` — Same as above (Agent Framework reads this)
 - `AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT` — Embeddings model deployment name
 
 **Azure AI Search (no API key needed):**

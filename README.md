@@ -9,7 +9,7 @@
 
 ## Why this exists
 
-Most RAG demos have no numbers. Hiring teams look for exactly the opposite: a repeatable way to prove retrieval quality and catch regressions. This harness plugs into any MANGOS RAG service (or your own) and produces a real scorecard.
+Most RAG demos have no numbers. Hiring teams look for exactly the opposite: a repeatable way to prove retrieval quality and catch regressions. This harness plugs into any RAG service (or your own) and produces a real scorecard.
 
 ## What it measures
 
